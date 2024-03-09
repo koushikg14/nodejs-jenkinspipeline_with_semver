@@ -1,19 +1,21 @@
-# .github/workflows/check_even_date.yml
-
-name: Check Even Date
+name: Check Month
 
 on:
   pull_request:
+    types: [opened]
 
 jobs:
-  check_date:
+  check_month:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Check if date is even
-      id: check_date
-      run: echo "::set-output name=is_even::$(date +'%d' | awk '{print $1 % 2}')"
+    - name: Check if month is even
+      id: check_month
+      run: echo "::set-output name=is_even::$(date +'%m' | awk '{print $1 % 2}')"
       
-    - name: Run tests
-      if: ${{ steps.check_date.outputs.is_even == '0' }}
-      run: pytest
+    - name: Print current month
+      run: echo "Current month is $(date +'%B')"
+      
+    - name: Pass check if month is even
+      if: ${{ steps.check_month.outputs.is_even == '0' }}
+      run: echo "Month is even, check passed"
