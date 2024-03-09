@@ -1,0 +1,19 @@
+# .github/workflows/check_even_date.yml
+
+name: Check Even Date
+
+on:
+  pull_request:
+
+jobs:
+  check_date:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Check if date is even
+      id: check_date
+      run: echo "::set-output name=is_even::$(date +'%d' | awk '{print $1 % 2}')"
+      
+    - name: Run tests
+      if: ${{ steps.check_date.outputs.is_even == '0' }}
+      run: pytest
