@@ -3,7 +3,7 @@ name: Check Month
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   check_month:
