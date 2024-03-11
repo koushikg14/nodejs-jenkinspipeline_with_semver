@@ -1,4 +1,4 @@
-name: Check Month
+name: Default pass
 
 on:
   pull_request:
