@@ -1,9 +1,8 @@
 name: Check Month
 
 on:
-  push:
-    branches:
-      - master
+  pull_request:
+    types: [opened]
 
 jobs:
   check_month:
@@ -18,5 +17,5 @@ jobs:
       run: echo "Current month is $(date +'%B')"
       
     - name: Fail if month is odd
-      if: ${{ steps.check_month.outputs.is_odd == '0' }}
+      if: ${{ steps.check_month.outputs.is_odd == '1' }}
       run: exit 1  # Fail the workflow if month is odd
