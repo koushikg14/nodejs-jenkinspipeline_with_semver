@@ -11,7 +11,7 @@ jobs:
     steps:
     - name: Check if month is even
       id: check_month
-      run: echo "::set-output name=is_even::$(date +'%m' | awk '{print $1 % 2}')"
+      run: echo "::set-output name=is_even::$(date +'%-m' | awk '{print $1 % 2}')"
       
     - name: Print current month
       run: echo "Current month is $(date +'%B')"
