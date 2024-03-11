@@ -1,18 +1,19 @@
-name: CI
-on: push
+name: Example Failing Workflow
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  test:
-    runs-on: ubuntu-18.04
+  build:
+    runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '16'
-      # - run: npm ci
-      # - run: npm test
-      # ignore
-      - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Run failing command
+        run: |
+          echo "This is a failing command"
+          exit 1  # Simulate a failure
