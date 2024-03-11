@@ -1,9 +1,8 @@
 name: Check Month
 
 on:
-  push:
-    branches:
-      - master
+  pull_request:
+    types: [opened]
 
 jobs:
   check_month:
