@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-//testpmt
-// new commit
-//asdf
 //new commit
 class App extends Component {
   render() {
