@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-//testpmt
-// new commit
-//asdf
 //new commit
 // new commit for kushak
 class App extends Component {
